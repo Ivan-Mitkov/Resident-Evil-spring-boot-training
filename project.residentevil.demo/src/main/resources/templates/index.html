@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resident Evil</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	
+	<nav class="navbar navbar-expand-lg  nav-link-white navbar-purple ">
+	<div class="container-fluid">
+		  <a class="navbar-brand nav-link-white" href="/">Resident Evil</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse nav-link-white" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto nav-link-white ">
+		    
+		      <li class="nav-item active">
+		        <a class="nav-link nav-link-white" href="/">Home </a>
+		      </li>
+		      
+		      <li class="nav-item dropdown ">
+		        <a class="nav-link nav-link-white " 
+		        role="button" href="#" id="navbarDropdown"  data-toggle="dropdown"
+		         aria-haspopup="true" aria-expanded="false">
+		        
+		          Viruses
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		         <a class="dropdown-item" href="/show">Show</a>
+		          <div class="divider"></div>
+		         <a class="dropdown-item" href="/add">Add</a>
+		         
+		        </div>
+		      </li>
+		      
+		      <li class="nav-item">
+		        <a class="nav-link nav-link-white" href="/map">Map</a>
+		      </li>
+		      
+		    </ul>
+		    
+		  </div>
+		  </div>
+		</nav>
+		<!-- MAIN TEXT -->
+	<th:block th:each="capital:${capitals}" th:object="${capital}">
+	
+		<div class="text-center"  th:text="|${capitalStat.count} Name: *{name} 
+		latitude: *{latitude} longitude: *{longitude}|"></div>	
+	</th:block> 
+</body>
+</html>
