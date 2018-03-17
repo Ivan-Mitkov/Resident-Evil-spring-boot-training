@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resident Evil</title>
+	<link rel="stylesheet" type="text/css" href="/project.residentevil.demo/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/project.residentevil.demo//css/style.css"/>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/project.residentevil.demo//scripts/bootstrap.min.js"></script>
+</head>
+<body>
+	<th:block th:include="fragments/navbar::navbar"></th:block>
+	
+	
+		<!-- MAIN TEXT -->
+	<th:block th:each="virus:${viruses}"action="/viruses/show" th:object="${virus}">
+	
+		<div class="text-center"  th:text="|${virusStat.count} Name: *{name} 
+		Magnitude *{magnitude} Realeased On: *{#temporals.format(localDate, 'dd-MMM-yyyy')}|"></div>	
+	</th:block> 
+</body>
+</html>
