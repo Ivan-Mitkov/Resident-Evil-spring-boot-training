@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resident Evil</title>
+	<link rel="stylesheet" type="text/css" href="/project.residentevil.demo/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/project.residentevil.demo//css/style.css"/>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/project.residentevil.demo//scripts/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<th:block th:include="fragments/navbar::navbar"></th:block>
+	<div class="container mt-4 color-link-blue">
+	<form class="mt-4 color-link-blue" action="/viruses/add" method="post">
+		<h2>Spread a new Virus!</h2>
+		
+		<div class="form-group ">
+			<label for="name">Name</label>
+	    	<input type="text" class="form-control" id="name" name="name"/>	    	
+		</div>
+		
+		<div class="form-group">
+			<label for="description">Description</label>
+	    	<textarea style="resize:none;" class="form-control" 
+	    	id="description" name="description" rows="3">
+	    	</textarea>	    	
+		</div>
+		
+		<div class="form-group">
+			<label for="side-effect">Side Effect</label>
+	    	<input type="text" class="form-control" id="side-effect" name="side-effect"/>	    	
+		</div>
+		
+		<div class="form-group">
+			<label for="creator">Creator</label>
+	    	<input type="text" class="form-control" id="creator" name="creator"/>	    	
+		</div>
+		
+		<div class="form-group">
+		    <label class="form-check-label">
+		      <input type="checkbox" class="form-check-input" name="isDeadly"/>
+		      Is Deadly?
+		    </label>
+		 </div>
+		 
+		 <div class="form-group">
+		    <label class="form-check-label">
+		      <input type="checkbox" class="form-check-input" name="isCurable"/>
+		      Is Curable?
+		    </label>
+		 </div>
+		 
+		 <fieldset class="form-group">
+		    <legend>Mutation</legend>
+		    <div class="form-check">
+		      <label class="form-check-label">
+		        <input type="radio" class="form-check-input"
+		         name="mutation" id="ZOMBIE" value="ZOMBIE" checked/>
+		        ZOMBIE
+		      </label>
+		    </div>
+		    <div class="form-check">
+		    <label class="form-check-label">
+		        <input type="radio" class="form-check-input"
+		         name="mutation" id="T_078_TYRANT" value="T_078_TYRANT"/>
+		       T_078_TYRANT
+		      </label>
+		    </div>
+		    <div class="form-check">
+		    <label class="form-check-label">
+		        <input type="radio" class="form-check-input" 
+		        name="mutation" id="GIANT_SPIDER" value="GIANT_SPIDER" />
+		       GIANT_SPIDER
+		      </label>
+		    </div>
+		    <div class="form-check disabled">
+		    <label class="form-check-label">
+		        <input type="radio" class="form-check-input" 
+		        name="mutation" id="SAVE_HUMANITY" value="SAVE_HUMANITY" disabled="disabled" />
+		       Save Humanity
+		      </label>
+		    </div>
+		 </fieldset>
+		 <div class="form-group">
+			<label for="turnoverRate">Turnover Rate</label>
+	    	<input type="number" class="form-control" id="turnoverRate" name="turnoverRate"/>	    	
+		</div>
+		
+		<div class="form-group">
+			<label for="hoursUntilTurn">Hours Until Turn</label>
+	    	<input type="number" class="form-control" id="hoursUntilTurn" name="hoursUntilTurn"/>	    	
+		</div>
+		
+		<div class="form-group">
+		    <label for="magnitude">Magnitude</label>
+		    <select class="form-control" id="magnitude" name="magnitude">
+		      <option>Low</option>
+		      <option>Medium</option>
+		      <option>High</option>		  
+		    </select>
+		 </div>
+		 
+		 <div class="form-group">
+		  <label for="releasedOn">Released Date</label>		  
+		    <input class="form-control" type="date" id="releasedOn" name="releasedOn">		  
+		</div>
+		<div class="form-group">
+		    <label for="capitals">Affected Capitals</label>
+		    <select multiple class="form-control" id="capitals" name="capitals">
+		     <th:block th:each="capital:${addVirusViewModel.getCapitals()}">
+		     	<option th:value="${capital}" th:text="${capital}"></option>
+		     </th:block>
+		    </select>
+		 </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	
+	</div>
+	
+	
+	
+	
+</body>
+</html>
