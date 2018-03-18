@@ -10,6 +10,16 @@
 .nav-button-white{
 	color:#FFC14E;
 }
+.button-purple{
+	color: #FFC14E;
+    background-color: #830039;
+    border-color: #830039;
+}
+.button-blue{
+	color: #FFC14E;
+    background-color: #665FE9;
+    border-color: #665FE9;
+}
 button:hover {
     color:#9B6400;
 }

@@ -8,7 +8,7 @@
 <div th:fragment="navbar">
 <nav class="navbar navbar-expand-lg  nav-link-white navbar-purple ">
 	<div class="container-fluid">
-		  <a class="navbar-brand nav-link-white" href="/">Resident Evil</a>
+		  <a class="navbar-brand nav-link-white" href="@{/index}">Resident Evil</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -22,15 +22,15 @@
 		      
 		      <li class="nav-item dropdown ">
 		        <a class="nav-link nav-link-white " 
-		        role="button" href="#" id="navbarDropdown"  data-toggle="dropdown"
-		         aria-haspopup="true" aria-expanded="false">
+		        role="button" th:href="@{/}" id="navbarDropdown"  data-toggle="dropdown"
+		         aria-haspopup="true" aria-expanded="false" >
 		        
 		          Viruses
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		         <a class="dropdown-item" href="viruses/show">Show</a>
+		         <a class="dropdown-item" th:href="@{/viruses/show}">Show</a>
 		          <div class="divider"></div>
-		         <a class="dropdown-item" href="viruses/add">Add</a>
+		         <a class="dropdown-item" th:href="@{/viruses/add}">Add</a>
 		         
 		        </div>
 		      </li>

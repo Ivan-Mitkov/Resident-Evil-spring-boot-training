@@ -3,52 +3,28 @@ package com.example.demo.models.service;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.example.demo.entity.Capital;
-import com.example.demo.entity.enums.Creator;
-import com.example.demo.entity.enums.Magnitude;
-import com.example.demo.entity.enums.Mutation;
+import org.springframework.stereotype.Component;
 
+@Component
 public class VirusServiceModel {
-
-	private long id;
+	
 	private String name;
 	private String description ;
 	private String sideEffects;
-	private Creator creator;
+	private String creator;
 	private boolean	isDeadly;
 	private boolean	isCurable;
-	private Mutation mutation;
+	private String mutation;
 	private int	turnoverRate;
 	private int hoursUntilTurn;
-	private Magnitude magnitude;
+	private String magnitude;
 	private LocalDate	releasedOn;
-	List<Capital> capitals;
+	List<String> capitals;
 	public VirusServiceModel() {
 		// TODO Auto-generated constructor stub
 	}
-	public VirusServiceModel(String name, String description, String sideEffects, Creator creator,
-			boolean isDeadly, boolean isCurable, Mutation mutation, int turnoverRate, int hoursUntilTurn,
-			Magnitude magnitude, LocalDate releasedOn, List<Capital> capitals) {
-		
-		this.name = name;
-		this.description = description;
-		this.sideEffects = sideEffects;
-		this.creator = creator;
-		this.isDeadly = isDeadly;
-		this.isCurable = isCurable;
-		this.mutation = mutation;
-		this.turnoverRate = turnoverRate;
-		this.hoursUntilTurn = hoursUntilTurn;
-		this.magnitude = magnitude;
-		this.releasedOn = releasedOn;
-		this.capitals = capitals;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -67,28 +43,28 @@ public class VirusServiceModel {
 	public void setSideEffects(String sideEffects) {
 		this.sideEffects = sideEffects;
 	}
-	public Creator getCreator() {
+	public String getCreator() {
 		return creator;
 	}
-	public void setCreator(Creator creator) {
+	public void setCreator(String creator) {
 		this.creator = creator;
 	}
-	public boolean isDeadly() {
+	public boolean getIsDeadly() {
 		return isDeadly;
 	}
-	public void setDeadly(boolean isDeadly) {
+	public void setIsDeadly(boolean isDeadly) {
 		this.isDeadly = isDeadly;
 	}
-	public boolean isCurable() {
+	public boolean getIsCurable() {
 		return isCurable;
 	}
-	public void setCurable(boolean isCurable) {
+	public void setIsCurable(boolean isCurable) {
 		this.isCurable = isCurable;
 	}
-	public Mutation getMutation() {
+	public String getMutation() {
 		return mutation;
 	}
-	public void setMutation(Mutation mutation) {
+	public void setMutation(String mutation) {
 		this.mutation = mutation;
 	}
 	public int getTurnoverRate() {
@@ -103,10 +79,10 @@ public class VirusServiceModel {
 	public void setHoursUntilTurn(int hoursUntilTurn) {
 		this.hoursUntilTurn = hoursUntilTurn;
 	}
-	public Magnitude getMagnitude() {
+	public String getMagnitude() {
 		return magnitude;
 	}
-	public void setMagnitude(Magnitude magnitude) {
+	public void setMagnitude(String magnitude) {
 		this.magnitude = magnitude;
 	}
 	public LocalDate getReleasedOn() {
@@ -115,11 +91,12 @@ public class VirusServiceModel {
 	public void setReleasedOn(LocalDate releasedOn) {
 		this.releasedOn = releasedOn;
 	}
-	public List<Capital> getCapitals() {
+	public List<String> getCapitals() {
 		return capitals;
 	}
-	public void setCapitals(List<Capital> capitals) {
+	public void setCapitals(List<String> capitals) {
 		this.capitals = capitals;
 	}
+	
 	
 }

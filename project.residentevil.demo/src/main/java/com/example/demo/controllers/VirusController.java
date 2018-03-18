@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.Capital;
+import com.example.demo.models.binding.AddVirusBindingModel;
 import com.example.demo.models.service.CapitalServiceModel;
 import com.example.demo.models.service.VirusServiceModel;
 import com.example.demo.models.view.AddVirusViewModel;
@@ -48,26 +49,29 @@ public class VirusController {
 		return modelAndView;
 	}
 	
-	@PostMapping("/add")
-	public ModelAndView saveViruse(@Valid @ModelAttribute VirusServiceModel virusModel,
+	@PostMapping("/addVirus")
+	public ModelAndView saveViruse(@Valid @ModelAttribute AddVirusBindingModel virusModel,
 			 BindingResult result,
 			ModelAndView modelAndView) {
-		if (result.hasErrors()) {
-			modelAndView.setViewName("show_all_viruses");
-			return modelAndView;
-	    }
 		
-		virusService.saveVirus(virusModel);
-		modelAndView.setViewName("show_all_viruses");
+		if (result.hasErrors()) {
+			modelAndView.setViewName("redirect:/");
+			
+	    }
+		else {
+			virusService.createVirus(virusModel);
+			modelAndView.setViewName("show_all_viruses");
+		}
+		
 		return modelAndView;
 	}
 	
 	@GetMapping("/show")
 	public ModelAndView showViruses(ModelAndView modelAndView) {
-		
+		modelAndView.setViewName("show_all_viruses");
 		List<VirusServiceModel>viruses=new ArrayList<>();
 		viruses=virusService.getAllViruses();
-		modelAndView.setViewName("show_all_viruses");
+		
 		modelAndView.addObject("viruses", viruses);
 		return modelAndView;
 	}

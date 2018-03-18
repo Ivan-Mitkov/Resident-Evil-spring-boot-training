@@ -1,5 +1,8 @@
 package com.example.demo.models.service;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CapitalServiceModel {
 	private long id;
 	private String name;

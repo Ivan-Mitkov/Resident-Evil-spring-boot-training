@@ -8,28 +8,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Virus;
+import com.example.demo.models.binding.AddVirusBindingModel;
 import com.example.demo.repositories.VirusRepository;
 import com.example.demo.services.VirusService;
 @Service
 public class VirusServiceImpl implements VirusService {
-
-	private final VirusRepository virusRepository;
-	
 	@Autowired
+	private final VirusRepository virusRepository;
+	@Autowired
+    private ModelMapper mapper;
+	
+	
 	public VirusServiceImpl(VirusRepository virusRepository) {
 		this.virusRepository = virusRepository;
 	}
 
 	@Override
-	public void saveVirus(VirusServiceModel virusModel) {
-		ModelMapper mapper=new ModelMapper();
+	public void createVirus(AddVirusBindingModel virusModel) {
+		
 		Virus virus=mapper.map(virusModel, Virus.class);
 		virusRepository.save(virus);
 	}
 
 	@Override
 	public void editVirus(VirusServiceModel virusModel) {
-		ModelMapper mapper=new ModelMapper();
+		
 		Virus virus=mapper.map(virusModel, Virus.class);
 		virusRepository.save(virus);
 		
@@ -54,5 +57,6 @@ public class VirusServiceImpl implements VirusService {
 				.collect(Collectors.toList());
 		return virusesDto;
 	}
-
+	
+	
 }

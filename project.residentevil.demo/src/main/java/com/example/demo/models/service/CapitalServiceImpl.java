@@ -40,6 +40,20 @@ public class CapitalServiceImpl implements CapitalService {
 		return mapper.map(capital, CapitalServiceModel.class);
 	}
 
+	@Override
+	//search for substring ignoring case for example results for K and k are the same
+	public List<CapitalServiceModel> getCapitalsByName(String name) {
+		ModelMapper mapper=new ModelMapper();
+		List<Capital>capitals=capitalRepository.findAll();
+		return capitals.stream()
+				.filter(x->
+				(x.getName().contains(name.trim().toLowerCase())
+						|x.getName().trim()
+						.contains(name.substring(0, 1).toUpperCase()+name.substring(1))))
+				.map(x->mapper.map(x, CapitalServiceModel.class))		
+				.collect(Collectors.toList());
+	}
+
 	
 	
 	

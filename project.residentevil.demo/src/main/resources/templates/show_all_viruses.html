@@ -11,11 +11,15 @@
 	<th:block th:include="fragments/navbar::navbar"></th:block>
 	
 	
-		<!-- MAIN TEXT -->
-	<th:block th:each="virus:${viruses}"action="/viruses/show" th:object="${virus}">
+	
+	<th:block th:each="virus:${viruses}" action="@{/viruses/show}">
 	
 		<div class="text-center"  th:text="|${virusStat.count} Name: *{name} 
 		Magnitude *{magnitude} Realeased On: *{#temporals.format(localDate, 'dd-MMM-yyyy')}|"></div>	
 	</th:block> 
+	
+	
+	
+		Viruses
 </body>
 </html>

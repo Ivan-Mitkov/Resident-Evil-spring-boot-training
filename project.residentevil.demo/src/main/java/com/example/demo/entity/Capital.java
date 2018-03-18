@@ -65,6 +65,13 @@ public class Capital {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
+
+	@Override
+	public String toString() {
+		return "Capital [name=" + name + ", latitude=" + latitude + ", longitude=" + longitude + "]";
+	}
+
+	
 	
 	
 }

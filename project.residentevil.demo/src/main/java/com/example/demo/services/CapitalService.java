@@ -7,5 +7,6 @@ import com.example.demo.models.service.CapitalServiceModel;
 public interface CapitalService {
 	List<CapitalServiceModel> getAllCapitals();
 	CapitalServiceModel getByName(String name);
+	List<CapitalServiceModel> getCapitalsByName(String name);
 	
 }

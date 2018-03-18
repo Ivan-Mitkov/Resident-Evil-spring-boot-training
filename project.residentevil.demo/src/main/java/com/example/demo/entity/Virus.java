@@ -147,22 +147,22 @@ public class Virus {
 	}
 
 
-	public boolean isDeadly() {
+	public boolean getIsDeadly() {
 		return isDeadly;
 	}
 
 
-	public void setDeadly(boolean isDeadly) {
+	public void setIsDeadly(boolean isDeadly) {
 		this.isDeadly = isDeadly;
 	}
 
 
-	public boolean isCurable() {
+	public boolean getIsCurable() {
 		return isCurable;
 	}
 
 
-	public void setCurable(boolean isCurable) {
+	public void setIsCurable(boolean isCurable) {
 		this.isCurable = isCurable;
 	}
 

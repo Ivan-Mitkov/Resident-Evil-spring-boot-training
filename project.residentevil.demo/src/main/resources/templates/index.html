@@ -8,7 +8,15 @@
 	<script src="scripts/bootstrap.min.js"></script>
 </head>
 <body>
+	<div class="container-fluid">
 	<th:block th:include="fragments/navbar::navbar"></th:block>
+	<div class="container d-flex justify-content-middle mt-4 mb-4">
+		<form class="mx-auto" th:action="@{/search}" th:method="GET">
+			<input  type="text" name ="name" placeholder="Search"/>
+			<button class="button-blue btn" type="submit">Search</button>
+		</form>
+		
+	</div> 
 	
 	
 		<!-- MAIN TEXT -->
@@ -17,5 +25,8 @@
 		<div class="text-center"  th:text="|${capitalStat.count} Name: *{name} 
 		latitude: *{latitude} longitude: *{longitude}|"></div>	
 	</th:block> 
+	
+	</div>
+	
 </body>
 </html>
