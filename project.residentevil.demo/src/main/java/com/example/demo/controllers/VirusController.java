@@ -1,10 +1,18 @@
 package com.example.demo.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.modelmapper.AbstractConverter;
+import org.modelmapper.AbstractProvider;
+import org.modelmapper.Converter;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.modelmapper.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -15,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.Capital;
+import com.example.demo.entity.Virus;
 import com.example.demo.models.binding.AddVirusBindingModel;
 import com.example.demo.models.service.CapitalServiceModel;
 import com.example.demo.models.service.VirusServiceModel;
@@ -53,14 +62,16 @@ public class VirusController {
 	public ModelAndView saveViruse(@Valid @ModelAttribute AddVirusBindingModel virusModel,
 			 BindingResult result,
 			ModelAndView modelAndView) {
-		
+		ModelMapper modelmapper=new ModelMapper();
 		if (result.hasErrors()) {
 			modelAndView.setViewName("redirect:/");
 			
 	    }
 		else {
+			 
 			virusService.createVirus(virusModel);
-			modelAndView.setViewName("show_all_viruses");
+			modelAndView.addObject("viruses", virusModel);
+			modelAndView.setViewName("redirect:show");
 		}
 		
 		return modelAndView;
@@ -68,11 +79,11 @@ public class VirusController {
 	
 	@GetMapping("/show")
 	public ModelAndView showViruses(ModelAndView modelAndView) {
-		modelAndView.setViewName("show_all_viruses");
-		List<VirusServiceModel>viruses=new ArrayList<>();
-		viruses=virusService.getAllViruses();
 		
-		modelAndView.addObject("viruses", viruses);
+		modelAndView.setViewName("show_all_viruses");
+		
+		modelAndView.addObject("viruses",this.virusService.getAllViruses());
+		
 		return modelAndView;
 	}
 	

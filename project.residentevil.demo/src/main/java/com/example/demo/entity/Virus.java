@@ -15,6 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.example.demo.entity.enums.Creator;
 import com.example.demo.entity.enums.Magnitude;
@@ -61,6 +65,7 @@ public class Virus {
 	@Enumerated(EnumType.STRING)
 	@Column( nullable =false)
 	private Magnitude magnitude;
+	
 	
 	@Column( nullable =false)
 	private LocalDate	releasedOn;

@@ -21,8 +21,8 @@ public class AddVirusBindingModel {
 		private int	turnoverRate;
 		private int hoursUntilTurn;
 		private String magnitude;
-		@DateTimeFormat(pattern="MM/dd/yyyy")
-		private LocalDate	releasedOn;
+		@DateTimeFormat(pattern="dd-MMM-YYYY")
+		private String releasedOn;
 		List<String> capitals;
 		public AddVirusBindingModel() {
 			// TODO Auto-generated constructor stub
@@ -89,12 +89,17 @@ public class AddVirusBindingModel {
 		public void setMagnitude(String magnitude) {
 			this.magnitude = magnitude;
 		}
-		public LocalDate getReleasedOn() {
+	
+		public String getReleasedOn() {
 			return releasedOn;
 		}
-		public void setReleasedOn(LocalDate releasedOn) {
+
+
+		public void setReleasedOn(String releasedOn) {
 			this.releasedOn = releasedOn;
 		}
+
+
 		public List<String> getCapitals() {
 			return capitals;
 		}

@@ -3,6 +3,7 @@ package com.example.demo.models.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,7 +19,8 @@ public class VirusServiceModel {
 	private int	turnoverRate;
 	private int hoursUntilTurn;
 	private String magnitude;
-	private LocalDate	releasedOn;
+	@DateTimeFormat(pattern="MM-dd-YYYY")
+	private String	releasedOn;
 	List<String> capitals;
 	public VirusServiceModel() {
 		// TODO Auto-generated constructor stub
@@ -85,12 +87,17 @@ public class VirusServiceModel {
 	public void setMagnitude(String magnitude) {
 		this.magnitude = magnitude;
 	}
-	public LocalDate getReleasedOn() {
+	
+	public String getReleasedOn() {
 		return releasedOn;
 	}
-	public void setReleasedOn(LocalDate releasedOn) {
+
+
+	public void setReleasedOn(String releasedOn) {
 		this.releasedOn = releasedOn;
 	}
+
+
 	public List<String> getCapitals() {
 		return capitals;
 	}
