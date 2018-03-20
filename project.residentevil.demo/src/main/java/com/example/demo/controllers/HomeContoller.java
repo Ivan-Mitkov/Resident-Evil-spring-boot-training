@@ -15,7 +15,7 @@ import com.example.demo.models.service.CapitalServiceModel;
 import com.example.demo.services.CapitalService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping(value = {"/","index"})
 public class HomeContoller {
 	
 	private CapitalService capitalService;

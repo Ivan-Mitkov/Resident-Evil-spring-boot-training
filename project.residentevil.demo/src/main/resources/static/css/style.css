@@ -21,8 +21,9 @@
     border-color: #665FE9;
 }
 .button-light{
-	color: #010014;
-    background-color: #EC9900;
+	color: #1D1300;
+    background-color: #FFC14E;
+    border-color: #FFC14E;
 }
 button:hover {
     color:#9B6400;
@@ -36,3 +37,7 @@ a:hover{
 .color-link-blue{
 	color:#010014;
 }
+.color-link-light{
+	color:#1D1300;
+}
+

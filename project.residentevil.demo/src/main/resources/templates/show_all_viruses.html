@@ -9,7 +9,7 @@
 </head>
 <body>
 	<th:block th:include="fragments/navbar::navbar"></th:block>
-	<div class="container mt-4">
+	<div class="container mt-4 color-link-light">
 		<h1>Viruses</h1>
 			<table class="table mt-4">
 			 <tr>
@@ -26,9 +26,9 @@
 		      <th scope="row" th:text="${virusStat.count}">1</th>
 		      <td th:text="*{name}">Name</td>
 		      <td th:text="*{magnitude}">Magnitude</td>
-		      <td th:text="*{releasedOn}">Realeased On</td>
-		      <td><a class=" btn button-secondery button-light color-link-blue" href="#">Edit</a></td>
-		      <td><a class=" btn button-secondery button-light color-link-blue" href="#">Delete</a></td>
+		      <td th:text="*{releasedOn}">Released On</td>
+		      <td><a class=" btn button-light color-link-light" href="#">Edit</a></td>
+		      <td><a class=" btn button-light" href="#">Delete</a></td>
 		    </tr>
 		   </th:block>
 		  </tbody>
